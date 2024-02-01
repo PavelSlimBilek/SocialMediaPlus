@@ -7,6 +7,8 @@ import com.example.socialmediaplusproject.repositories.UserRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PostService {
@@ -23,11 +25,7 @@ public class PostService {
         this.userRepo.save(author);
     }
 
-    public Post getPost(Long id) {
-        return this.postRepo.getReferenceById(id);
-    }
-
-    public void savePost(Post post) {
-        this.postRepo.save(post);
+    public List<Post> getAll() {
+        return postRepo.findAll();
     }
 }

@@ -10,21 +10,16 @@
             <h1 class="logo">+home</h1>
             <h4 th:text="'Logged as: ' + ${#authentication.name}"></h4>
         </header>
-        <nav>
-            <a class="nav" href="/home">home</a>
-            <a class="nav" href="/create">post</a>
-            <div class="navRight">
-                <a class="nav" href="/login">login</a>
-                <a class="nav" href="/login">logout</a>
-            </div>
-        </nav>
+
+        <div th:replace="fragments/navbar :: navbar"></div>
+
         <main>
             <div th:each="post : ${posts}" class="display">
                 <div class="displayHeader">
-                    <div class="profileImageDisplay">
-                        <img class="profileImage" th:src="@{${post.getAuthor().getProfileImagePath()}}" th:alt="${post.getAuthor().getUsername()}" />
+                    <div class="imageContainerSmall">
+                        <img class="profileImageSmall" th:src="@{${post.getAuthor().getProfileImagePath()}}" th:alt="${post.getAuthor().getUsername()}" />
                     </div>
-                    <div class="postInfo">
+                    <div class="info">
                         <h2 th:text="${post.getTitle()}"></h2>
                         <h3 th:text="'by: ' + ${post.getAuthor().getUsername()}"></h3>
                     </div>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>User profile</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+    <header>
+        <h1 class="logo">+profile</h1>
+        <h4 th:text="'Logged as: ' + ${#authentication.name}"></h4>
+    </header>
+
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <main>
+        <div class="display">
+            <div class="displayHeader">
+                <div class="imageContainer">
+                    <img class="profileImage" th:src="@{${userProfile.profileImage()}}" th:alt="${userProfile.username()}" />
+                </div>
+                <div class="info">
+                    <h2 th:text="${userProfile.username()}"></h2>
+                    <h3 th:text="${userProfile.firstName() + ' ' + userProfile.lastName()}"></h3>
+                </div>
+            </div>
+            <div class="about">
+                <p th:text="${userProfile.about() == null ? 'No profile description' : userProfile.about()}"></p>
+            </div>
+        </div>
+    </main>
+    </body>
+</html>

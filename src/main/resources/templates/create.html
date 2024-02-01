@@ -10,10 +10,9 @@
       <h1 class="logo">+post</h1>
       <h4 th:text="'Logged as: ' + ${#authentication.name}"></h4>
     </header>
-    <nav>
-      <a class="nav" href="/home">home</a>
-      <a class="nav" href="/create">post</a>
-    </nav>
+
+    <div th:replace="fragments/navbar :: navbar"></div>
+
     <main>
       <form action="/create" method="post">
         <input name="title" placeholder="+title" required />

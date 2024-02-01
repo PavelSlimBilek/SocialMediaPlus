@@ -27,6 +27,9 @@ public class SocialMediaPlusProjectApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
         Uzer user = new Uzer("kokot", passwordEncoder.encode("kokot"));
+        user.setFirstName("Pavel");
+        user.setLastName("Bílek");
+        user.setAbout("I created this mess...");
         userRepo.save(user);
 
         Uzer user1 = new Uzer("69_lover", passwordEncoder.encode("kokot")).setImage("/images/users/user69.png");

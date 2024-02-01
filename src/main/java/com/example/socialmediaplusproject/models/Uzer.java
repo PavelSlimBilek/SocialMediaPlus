@@ -22,7 +22,11 @@ public class Uzer {
 
     private String username;
     private String password;
-    private String profileImagePath;
+
+    private String profileImagePath = "/images/users/default.jpg";
+    private String firstName = "";
+    private String lastName = "";
+    private String about = "No profile description";
 
     @OneToMany(mappedBy = "author")
     private final Set<Post> posts = new HashSet<>();
@@ -32,7 +36,6 @@ public class Uzer {
     public Uzer(String userName, String password) {
         this.username = userName;
         this.password = password;
-        this.profileImagePath = "/images/users/default.jpg";
     }
 
     public void addPost(Post post) {

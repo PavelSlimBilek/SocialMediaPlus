@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>People</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <header>
+            <h1 class="logo">+people</h1>
+            <h4 th:text="'Logged as: ' + ${#authentication.name}"></h4>
+        </header>
+
+        <div th:replace="fragments/navbar :: navbar"></div>
+
+        <main>
+            <div class="display" th:each="profile : ${userProfiles}">
+                <div class="displayHeader">
+                    <div class="imageContainer">
+                        <a th:href="'/profile/' + ${profile.id()}" class="profileHref">
+                            <img class="profileImage" th:src="@{${profile.profileImage()}}" th:alt="${profile.username()}" />
+                        </a>
+                    </div>
+                    <div class="info">
+                        <h2 th:text="${profile.username()}"></h2>
+                        <h3 th:text="${profile.firstName() + ' ' + profile.lastName()}"></h3>
+                    </div>
+                </div>
+                <div class="about">
+                    <p th:text="${profile.about()}"></p>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

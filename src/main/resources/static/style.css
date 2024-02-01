@@ -4,7 +4,7 @@
     padding: 0;
     font-weight: lighter;
     font-family: "Arial", sans-serif;
-    color: #333333;
+    color: #222222;
 }
 
 body {
@@ -104,20 +104,33 @@ h4 {
     min-width: 4rem;
 }
 
-.profileImageDisplay {
+.imageContainer {
     display: inline;
-    max-width: 4rem;
-    max-height: 4rem;
+    width: 12rem;
+    height: 12rem;
     margin: 0.3rem;
 }
 
 .profileImage {
+    display: inline;
+    width: 12rem;
+    height: 12rem;
+}
+
+.imageContainerSmall {
+    display: inline;
+    width: 4rem;
+    height: 4rem;
+    margin: 0.3rem;
+}
+
+.profileImageSmall {
     width: 4rem;
     height: 4rem;
     border: 2px solid #333333;
 }
 
-.postInfo {
+.info {
     vertical-align: top;
     display: inline-block;
 }
@@ -139,8 +152,18 @@ a, a:hover, a:active, a:focus {
     padding: 1rem;
 }
 
+.profileHref, .profileHref:hover, .profileHref:active, .profileHref:focus {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
 .navRight {
     display: inline-block;
     width: 100%;
     text-align: right;
+}
+
+.about {
+    margin: 0.3rem;
 }
