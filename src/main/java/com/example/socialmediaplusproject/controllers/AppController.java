@@ -43,6 +43,13 @@ public class AppController {
         return "profile";
     }
 
+    @GetMapping("/manage")
+    public String manageProfile(Model model) {
+
+        model.addAttribute("userProfile", userService.get(securityService.getLoggedInUser().id()));
+        return "manage";
+    }
+
     @GetMapping("/profile/{id}")
     public String getProfile(Model model,
                              @PathVariable Long id) {

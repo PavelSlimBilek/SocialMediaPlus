@@ -25,9 +25,12 @@
                 </div>
             </div>
             <div class="about">
-                <p th:text="${userProfile.about() == null ? 'No profile description' : userProfile.about()}"></p>
+                <p th:text="${userProfile.about()}"></p>
             </div>
         </div>
+
+        <a th:if="${#authentication.name.equals(userProfile.username())}" href="/manage">update profile info</a>
+
     </main>
     </body>
 </html>

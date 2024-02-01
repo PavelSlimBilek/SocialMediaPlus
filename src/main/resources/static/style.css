@@ -52,9 +52,9 @@ form > * {
 }
 
 form > input {
-    margin: 2rem;
-    padding: 2rem;
-    font-size: 3rem;
+    margin: 1rem;
+    padding: 1rem;
+    font-size: 2rem;
     min-width: 40rem;
     max-width: 40rem;
 }
@@ -70,7 +70,6 @@ input {
 
 .display {
     margin: 1.5rem;
-    border-radius: 0.2rem;
     box-shadow: 2px 2px 2px 2px #d0d0d0;
     background-color: white;
     max-width: 33%;
@@ -115,6 +114,7 @@ h4 {
     display: inline;
     width: 12rem;
     height: 12rem;
+    border: 2px solid #333333;
 }
 
 .imageContainerSmall {

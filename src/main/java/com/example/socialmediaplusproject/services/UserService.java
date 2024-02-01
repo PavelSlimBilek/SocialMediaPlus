@@ -1,16 +1,15 @@
 package com.example.socialmediaplusproject.services;
 
 import com.example.socialmediaplusproject.dto.RegistrationDto;
+import com.example.socialmediaplusproject.dto.UpdateDto;
 import com.example.socialmediaplusproject.dto.UserDto;
 import com.example.socialmediaplusproject.models.Post;
 import com.example.socialmediaplusproject.models.Uzer;
 import com.example.socialmediaplusproject.repositories.UserRepo;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -42,6 +41,15 @@ public class UserService {
 
     public UserDto get(Long id) {
         return fillUserDto(repo.getReferenceById(id));
+    }
+
+    public void update(UpdateDto dto) {
+        Uzer user = repo.getReferenceById(dto.id());
+        user.setFirstName(dto.firstName().isBlank() ? user.getFirstName() : dto.firstName());
+        user.setLastName(dto.lastName().isBlank() ? user.getLastName() : dto.lastName());
+        user.setAbout(dto.about().isBlank() ? user.getAbout() : dto.about());
+        user.setProfileImagePath(dto.profileImage().isBlank() ? user.getProfileImagePath() : dto.profileImage());
+        repo.save(user);
     }
 
     private UserDto fillUserDto(Uzer u) {
