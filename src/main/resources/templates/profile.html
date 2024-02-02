@@ -24,7 +24,10 @@
                     <h3 th:text="${userProfile.firstName() + ' ' + userProfile.lastName()}"></h3>
                 </div>
             </div>
-            <div class="about">
+            <div class="displayPanel">
+                <p th:text="${'since: ' + userProfile.creationTime()}"></p>
+            </div>
+            <div class="displayContent">
                 <p th:text="${userProfile.about()}"></p>
             </div>
         </div>

@@ -6,6 +6,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,6 +20,7 @@ public class Uzer {
     @Id
     @GeneratedValue
     private Long id;
+    private LocalDateTime creationTime;
 
     private String username;
     private String password;
@@ -35,6 +38,8 @@ public class Uzer {
     public Uzer(String userName, String password) {
         this.username = userName;
         this.password = password;
+
+        this.creationTime = LocalDateTime.now();
     }
 
     public void addPost(Post post) {
@@ -48,5 +53,9 @@ public class Uzer {
     public Uzer setImage(String url) {
         this.profileImagePath = url;
         return this;
+    }
+
+    public String formatCreationTime() {
+        return this.creationTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
     }
 }

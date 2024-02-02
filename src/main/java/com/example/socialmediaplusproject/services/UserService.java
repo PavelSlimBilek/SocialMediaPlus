@@ -45,16 +45,17 @@ public class UserService {
 
     public void update(UpdateDto dto) {
         Uzer user = repo.getReferenceById(dto.id());
-        user.setFirstName(dto.firstName().isBlank() ? user.getFirstName() : dto.firstName());
-        user.setLastName(dto.lastName().isBlank() ? user.getLastName() : dto.lastName());
-        user.setAbout(dto.about().isBlank() ? user.getAbout() : dto.about());
-        user.setProfileImagePath(dto.profileImage().isBlank() ? user.getProfileImagePath() : dto.profileImage());
+        user.setFirstName(dto.firstName().trim().isBlank() ? user.getFirstName() : dto.firstName());
+        user.setLastName(dto.lastName().trim().isBlank() ? user.getLastName() : dto.lastName());
+        user.setAbout(dto.about().trim().isBlank() ? user.getAbout() : dto.about());
+        user.setProfileImagePath(dto.profileImage().trim().isBlank() ? user.getProfileImagePath() : dto.profileImage());
         repo.save(user);
     }
 
     private UserDto fillUserDto(Uzer u) {
         return new UserDto(
                 u.getId(),
+                u.formatCreationTime(),
                 u.getUsername(),
                 u.getFirstName(),
                 u.getLastName(),

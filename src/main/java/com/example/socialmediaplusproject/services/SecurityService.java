@@ -19,6 +19,7 @@ public class SecurityService {
         Uzer user = repo.findByUsername(authentication.getName());
         return new UserDto(
                 user.getId(),
+                user.formatCreationTime(),
                 user.getUsername(),
                 user.getFirstName(),
                 user.getLastName(),

@@ -1,6 +1,5 @@
 package com.example.socialmediaplusproject.models;
 
-import com.example.socialmediaplusproject.dto.PostDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,10 +18,10 @@ public class Post {
     @Id
     @GeneratedValue
     private Long id;
+    private LocalDateTime creationTime;
 
     private String title;
     private String content;
-    private LocalDateTime creationTime;
 
     @ManyToOne
     private Uzer author;
@@ -37,7 +36,7 @@ public class Post {
     }
 
     public String formatCreationTime() {
-        return creationTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));
+        return this.creationTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));
     }
 
     public Integer getRating() {
