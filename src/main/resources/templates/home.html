@@ -46,8 +46,10 @@
                         <input type="hidden" name="username" th:value="${#authentication.name}" />
                         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                     </form>
-                    <button type="submit" class="smallButton" th:form="${post.id()}">+</button>
-                    <button type="submit" class="smallButton" th:form="'-' + ${post.id()}">-</button>
+                    <button type="submit" th:class="${post.hasUserVotedUp(#authentication.name) ? 'smallButton blue' : 'smallButton'}"
+                            th:form="${post.id()}">+</button>
+                    <button type="submit" th:class="${post.hasUserVotedDown(#authentication.name) ? 'smallButton blue' : 'smallButton'}"
+                            th:form="'-' + ${post.id()}">-</button>
                 </div>
             </div>
         </main>

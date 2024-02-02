@@ -142,8 +142,8 @@ h4 {
     margin: 0.1rem;
 }
 
-button:hover, input[type="submit"]:hover {
-    background-color: #a3c4e7;
+.blue, button:hover, input[type="submit"]:hover {
+    background-color: #729fce;
     color: #EBEBEB;
 }
 

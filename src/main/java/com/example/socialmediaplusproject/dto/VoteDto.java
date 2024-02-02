@@ -1,7 +1,7 @@
 package com.example.socialmediaplusproject.dto;
 
 public record VoteDto(
-        long voterId,
+        String voterUsername,
         int bias
 ) {
 }

@@ -67,7 +67,7 @@ public class PostService {
 
     private VoteDto fillVoteDto(Vote vote) {
         return new VoteDto(
-                vote.getVoter().getId(),
+                vote.getVoter().getUsername(),
                 vote.getBias()
         );
     }
