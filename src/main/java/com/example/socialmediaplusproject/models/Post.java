@@ -1,5 +1,6 @@
 package com.example.socialmediaplusproject.models;
 
+import com.example.socialmediaplusproject.dto.PostDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

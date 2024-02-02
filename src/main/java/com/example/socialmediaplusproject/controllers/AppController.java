@@ -40,6 +40,7 @@ public class AppController {
     public String getProfile(Model model) {
 
         model.addAttribute("userProfile", securityService.getLoggedInUser());
+        model.addAttribute("userPosts", postService.getByAuthorId(securityService.getLoggedInUser().id()));
         return "profile";
     }
 
@@ -55,6 +56,7 @@ public class AppController {
                              @PathVariable Long id) {
 
         model.addAttribute("userProfile", userService.get(id));
+        model.addAttribute("userPosts", postService.getByAuthorId(id));
         return "profile";
     }
 
