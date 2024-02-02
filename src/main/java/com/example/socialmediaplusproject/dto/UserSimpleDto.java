@@ -1,10 +1,8 @@
 package com.example.socialmediaplusproject.dto;
 
-public record UpdateDto(
+public record UserSimpleDto(
         long id,
-        String firstName,
-        String lastName,
-        String about,
+        String username,
         String profileImage
 ) {
 }

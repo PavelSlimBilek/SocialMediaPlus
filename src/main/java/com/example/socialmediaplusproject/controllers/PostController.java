@@ -1,6 +1,6 @@
 package com.example.socialmediaplusproject.controllers;
 
-import com.example.socialmediaplusproject.dto.PostDto;
+import com.example.socialmediaplusproject.dto.PostRequestDto;
 import com.example.socialmediaplusproject.services.PostService;
 import com.example.socialmediaplusproject.services.SecurityService;
 import com.example.socialmediaplusproject.services.VoteService;
@@ -27,7 +27,7 @@ public class PostController {
     }
 
     @PostMapping("/post")
-    public String attemptToPost(@ModelAttribute PostDto dto) {
+    public String post(@ModelAttribute PostRequestDto dto) {
 
         if (securityService.getLoggedInUser().username().equals(dto.author())) {
             postService.post(dto);

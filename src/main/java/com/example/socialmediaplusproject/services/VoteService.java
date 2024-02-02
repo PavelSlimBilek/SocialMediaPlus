@@ -66,7 +66,7 @@ public class VoteService {
         post.getVotes().add(vote);
 
         vote.setVoter(user);
-        user.addVote(vote);
+        user.vote(vote);
         voteRepo.save(vote);
         userRepo.save(user);
         postRepo.save(post);

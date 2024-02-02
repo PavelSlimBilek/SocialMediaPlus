@@ -15,14 +15,12 @@ public class UserController {
 
     @PostMapping("/register")
     public String registerUser(@ModelAttribute RegistrationDto dto) {
-
         userService.registerUser(dto);
         return "redirect:/login";
     }
 
     @PostMapping("/update")
     public String updateInfo(@ModelAttribute UpdateDto dto) {
-
         userService.update(dto);
         return "redirect:/profile";
     }

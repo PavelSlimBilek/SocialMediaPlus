@@ -1,6 +1,6 @@
 package com.example.socialmediaplusproject.services;
 
-import com.example.socialmediaplusproject.dto.UserDto;
+import com.example.socialmediaplusproject.dto.UserModelDto;
 import com.example.socialmediaplusproject.models.Uzer;
 import com.example.socialmediaplusproject.repositories.UserRepo;
 import lombok.RequiredArgsConstructor;
@@ -14,10 +14,10 @@ public class SecurityService {
 
     private final UserRepo repo;
 
-    public UserDto getLoggedInUser() {
+    public UserModelDto getLoggedInUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Uzer user = repo.findByUsername(authentication.getName());
-        return new UserDto(
+        return new UserModelDto(
                 user.getId(),
                 user.formatCreationTime(),
                 user.getUsername(),

@@ -19,26 +19,22 @@ public class AppController {
 
     @GetMapping("/register")
     public String registration() {
-
         return "registration";
     }
 
     @GetMapping("/login")
     public String login() {
-
         return "login";
     }
 
     @GetMapping("/home")
     public String goHome(Model model) {
-
         model.addAttribute("posts", postService.getAll());
         return "home";
     }
 
     @GetMapping("/profile")
     public String getProfile(Model model) {
-
         model.addAttribute("userProfile", securityService.getLoggedInUser());
         model.addAttribute("userPosts", postService.getByAuthorId(securityService.getLoggedInUser().id()));
         return "profile";
@@ -46,7 +42,6 @@ public class AppController {
 
     @GetMapping("/manage")
     public String manageProfile(Model model) {
-
         model.addAttribute("userProfile", userService.get(securityService.getLoggedInUser().id()));
         return "manage";
     }
@@ -62,7 +57,6 @@ public class AppController {
 
     @GetMapping("/people")
     public String getProfiles(Model model) {
-
         model.addAttribute("userProfiles", userService.getAll());
         return "people";
     }

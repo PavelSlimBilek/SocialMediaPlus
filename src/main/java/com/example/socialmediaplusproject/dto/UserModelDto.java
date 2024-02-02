@@ -1,7 +1,7 @@
 package com.example.socialmediaplusproject.dto;
 
-public record UserDto(
-        Long id,
+public record UserModelDto(
+        long id,
         String creationTime,
         String username,
         String firstName,

@@ -2,7 +2,7 @@ package com.example.socialmediaplusproject.services;
 
 import com.example.socialmediaplusproject.dto.RegistrationDto;
 import com.example.socialmediaplusproject.dto.UpdateDto;
-import com.example.socialmediaplusproject.dto.UserDto;
+import com.example.socialmediaplusproject.dto.UserModelDto;
 import com.example.socialmediaplusproject.models.Post;
 import com.example.socialmediaplusproject.models.Uzer;
 import com.example.socialmediaplusproject.repositories.UserRepo;
@@ -30,16 +30,16 @@ public class UserService {
 
     public void post(Post post) {
         Uzer user = this.repo.findByUsername(post.getAuthor().getUsername());
-        user.addPost(post);
+        user.post(post);
     }
 
-    public Set<UserDto> getAll() {
+    public Set<UserModelDto> getAll() {
         return repo.findAll().stream()
                 .map(this::fillUserDto)
                 .collect(Collectors.toSet());
     }
 
-    public UserDto get(Long id) {
+    public UserModelDto get(Long id) {
         return fillUserDto(repo.getReferenceById(id));
     }
 
@@ -52,8 +52,8 @@ public class UserService {
         repo.save(user);
     }
 
-    private UserDto fillUserDto(Uzer u) {
-        return new UserDto(
+    private UserModelDto fillUserDto(Uzer u) {
+        return new UserModelDto(
                 u.getId(),
                 u.formatCreationTime(),
                 u.getUsername(),

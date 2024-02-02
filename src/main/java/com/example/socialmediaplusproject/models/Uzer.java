@@ -35,18 +35,18 @@ public class Uzer {
     @OneToMany(mappedBy = "voter")
     private final Set<Vote> votes = new HashSet<>();
 
-    public Uzer(String userName, String password) {
-        this.username = userName;
+    public Uzer(String username, String password) {
+        this.username = username;
         this.password = password;
 
         this.creationTime = LocalDateTime.now();
     }
 
-    public void addPost(Post post) {
+    public void post(Post post) {
         this.posts.add(post);
     }
 
-    public void addVote(Vote vote) {
+    public void vote(Vote vote) {
         this.votes.add(vote);
     }
 
