@@ -1,7 +1,7 @@
 Social media demo
 
 - practice project (GFA) -> simplified demo of social media web application
-- Spring Security allows creation new user profile and login
+- Spring Security allows creating new user profile and login (authenticates against H2 uzer table)
 - uses in-memory H2 database (for posts, users and likes - comments to be added)
 - basic functionality is to create a post
 - allows for basic profile adjustments
